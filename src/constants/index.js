@@ -5,10 +5,10 @@ import project4 from '../assets/Portfolio.png';
 
 export const EXPERIENCES = [
     {
-        year: "2023 - Present",
-        role: "Senior Full Stack Developer",
-        company: "Google Inc.",
-        description: `Led a team in developing and maintaining web applications using JavaScript, React.js, and Node.js. Implemented RESTful APIs and integrated with MongoDB databases. Collaborated with stakeholders to define project requirements and timelines.`,
+        year: "jan-2024 - june-2024",
+        role: "Web Developer Intern",
+        company: "Dreamvessels Technology Pri. Ltd.",
+        description: `I was primarily involved in Developer team in creating the Front-End part of the project. Also , Assisting in creating Responsive Design.I have also done some debugging on a live projects.`,
         technologies: ["Javascript", "React.js", "Next.js", "mongoDB"],
     }
 ];
@@ -24,7 +24,7 @@ export const PROJECTS = [
         description:
             "A fully functional Social-Media website with features like creating Post, and user authentication.",
         technologies: ["HTML", "TailwindCSS", "React", "Node.js", "MongoDB"],
-        link:"https://social-media-eiiu.vercel.app/",
+        link: "https://social-media-eiiu.vercel.app/",
     },
     {
         title: "Netflix-Clone",
@@ -32,7 +32,7 @@ export const PROJECTS = [
         description:
             "An application replicating the features and Design of popular streaming Platform Netflix.",
         technologies: ["HTML", "TailwindCSS", "React", "Firebase"],
-        link:"https://netflix-liart-chi.vercel.app/",
+        link: "https://netflix-liart-chi.vercel.app/",
     },
     {
         title: "Food-ordering Application",
@@ -40,7 +40,7 @@ export const PROJECTS = [
         description:
             "A food ordeering Application like that of swiggy.",
         technologies: ["HTML", "TailwindCSS", "React", "Bootstrap"],
-        link:"https://food-ordering-app-three-ashy.vercel.app/",
+        link: "https://food-ordering-app-three-ashy.vercel.app/",
     },
     {
         title: "Portfolio",
@@ -48,7 +48,7 @@ export const PROJECTS = [
         description:
             "A personal portfolio website showcasing projects, skills, and contact information.",
         technologies: ["HTML", "TailwindCSS", "React", "Bootstrap"],
-        link:"#",
+        link: "http://portfolio-nikhil-five-82.vercel.app/",
     },
     // {
     //   title: "Blogging Platform",
