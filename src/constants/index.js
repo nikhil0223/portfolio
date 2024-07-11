@@ -40,7 +40,8 @@ export const PROJECTS = [
         description:
             "A food ordeering Application like that of swiggy.",
         technologies: ["HTML", "TailwindCSS", "React", "Bootstrap"],
-        link: "https://food-ordering-app-three-ashy.vercel.app/",
+        // link: "https://food-ordering-app-three-ashy.vercel.app/",
+        link:"#",
     },
     {
         title: "Portfolio",
