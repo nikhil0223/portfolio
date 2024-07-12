@@ -3,6 +3,8 @@ import project2 from '../assets/Netflix.png';
 import project3 from '../assets/FoodApp.png';
 import project4 from '../assets/Portfolio.png';
 
+export const PHONE_NO = 8295148197;
+
 export const EXPERIENCES = [
     {
         year: "jan-2024 - june-2024",

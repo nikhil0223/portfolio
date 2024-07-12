@@ -3,8 +3,9 @@ import logo from '../assets/logo.png';
 import { FaLinkedin } from 'react-icons/fa';
 import { FaGithub } from 'react-icons/fa';
 import { FaSquareXTwitter } from 'react-icons/fa6';
-import { FaInstagram } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { IoLogoWhatsapp } from 'react-icons/io';
+import { PHONE_NO } from '../constants';
 
 const NavBar = () => {
   return (
@@ -22,8 +23,8 @@ const NavBar = () => {
         <Link>
           <FaSquareXTwitter />
         </Link>
-        <Link>
-          <FaInstagram />
+        <Link to={`https://wa.me/${PHONE_NO}`} target="_blank">
+          <IoLogoWhatsapp />
         </Link>
       </div>
     </nav>
