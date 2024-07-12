@@ -1,9 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CONTACT } from '../constants/index';
 import { motion } from 'framer-motion';
 import pdf from '../assets/Resume2.pdf';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name.toLowerCase()]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch('http://localhost:8000/mail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const result = await response.json();
+    console.log(result);
+    if (response.ok) {
+      alert('Message sent successfully!');
+    } else {
+      alert('Failed to send message.');
+    }
+  };
+
   return (
     <div className="border-b border-neutral-900 pb-20">
       <motion.h2
@@ -45,7 +79,7 @@ const Contact = () => {
                 Download CV
               </motion.a>
               <motion.a
-                href="#"
+                href={`mailto:${CONTACT.email}`}
                 whileInView={{ opacity: 1, x: 0 }}
                 initial={{ opacity: 0, x: -100 }}
                 transition={{ duration: 1 }}
@@ -58,6 +92,7 @@ const Contact = () => {
         </div>
         <div className="p-4 m-2 w-full lg:w-1/2 lg:p-8 lg:m-0">
           <motion.form
+            onSubmit={handleSubmit}
             whileInView={{ opacity: 1, x: 0 }}
             initial={{ opacity: 0, x: 100 }}
             transition={{ duration: 1 }}
@@ -67,6 +102,8 @@ const Contact = () => {
               type="text"
               name="Name"
               placeholder="Your Name"
+              onChange={handleChange}
+              value={formData.name}
               required
               className="block w-full px-4 py-2 rounded-lg border border-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-800 bg-gray-800"
             />
@@ -74,6 +111,8 @@ const Contact = () => {
               type="email"
               name="Email"
               placeholder="Your Email"
+              value={formData.email}
+              onChange={handleChange}
               required
               className="block w-full px-4 py-2 rounded-lg border border-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-800 bg-gray-800"
             />
@@ -81,6 +120,8 @@ const Contact = () => {
               name="Message"
               rows="6"
               placeholder="Your Message"
+              value={formData.message}
+              onChange={handleChange}
               className="block w-full px-4 py-2 rounded-lg border border-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-800 bg-gray-800"
             ></textarea>
             <button
