@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { CONTACT } from '../constants/index';
 import { motion } from 'framer-motion';
 import pdf from '../assets/Resume2.pdf';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Contact = () => {
+  const [message, setMessage] = useState('');
+  const [show, setShowMessage] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,22 +22,20 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e) => {
+    setShowMessage(true);
     e.preventDefault();
-
-    const response = await fetch('http://localhost:8000/mail', {
+    const response = await fetch('https://portfolio-server-nikhil.vercel.app/mail', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(formData),
     });
-
-    const result = await response.json();
-    console.log(result);
     if (response.ok) {
-      alert('Message sent successfully!');
+      setFormData({ name: '', email: '', message: '' });
+      setMessage('Mail sent Successfully');
     } else {
-      alert('Failed to send message.');
+      setMessage('Failed to send message.');
     }
   };
 
@@ -124,12 +125,15 @@ const Contact = () => {
               onChange={handleChange}
               className="block w-full px-4 py-2 rounded-lg border border-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-800 bg-gray-800"
             ></textarea>
-            <button
-              type="submit"
-              className="block  bg-neutral-900 text-purple-900 py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-900"
-            >
-              Submit
-            </button>
+            <div className="flex fle-wrap">
+              <button
+                type="submit"
+                className="block  bg-neutral-900 text-purple-900 py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-900"
+              >
+                Submit
+              </button>
+              {show && <p className="py-2 px-4">{message}</p>}
+            </div>
           </motion.form>
         </div>
       </div>
